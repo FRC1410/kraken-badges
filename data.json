@@ -254,21 +254,18 @@
       "role": "Mechanical",
       "joined": "2026",
       "earned": [
-        {
-          "badge": "cad",
-          "date": "2025-11-14"
-        }
-      ]
+        {"badge": "cad", "date": "2025-11-14"}
     },
     {
       "slug": "olson-b",
       "name": "Olson Batchelor",
-      "role": "Programming",
+      "role": "Mechanical",
       "joined": "2026",
       "earned": [
         {"badge": "cnc-master", "date": "2026-10-01"},
-        {"badge": "cad-master","date": "2026-10-01"},
-            {
+        {"badge": "cad-master","date": "2026-10-01"}
+      },
+      {
       "slug": "sebastian-m",
       "name": "Sebastian M.",
       "role": "Programming",
