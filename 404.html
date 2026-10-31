@@ -4,20 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kraken Proficiencies</title>
-<meta name="theme-color" content="#0b1d2e">
+<meta name="theme-color" content="#0d211a">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
   :root {
-    --bg: #0b1d2e; --bg2: #10283f; --card: #143352; --line: #1f4568;
-    --text: #e8f1f8; --muted: #8aa6bf; --accent: #2ec4b6; --gold: #f2c14e;
+    --bg: #0d211a; --bg2: #123026; --card: #173a2e; --line: #24533f;
+    --text: #eaf5ef; --muted: #8fb5a2; --accent: #5fd39a; --gold: #f2c14e;
   }
   * { box-sizing: border-box; }
-  html { background: #0b1d2e; }
+  html { background: #0d211a; }
   body {
     margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: radial-gradient(circle at 50% -10%, #1a4a6e 0%, var(--bg) 60%) fixed;
+    background: radial-gradient(circle at 50% -10%, #1f5a40 0%, var(--bg) 60%) fixed;
     color: var(--text); min-height: 100vh;
   }
-  main { max-width: 640px; margin: 0 auto; padding: 28px 18px 60px; }
+  .wrap { max-width: 640px; margin: 0 auto; position: relative; }
+  main { padding: 28px 18px 60px; position: relative; z-index: 1; }
+  .logo { position: absolute; top: 14px; right: 14px; height: 118px; z-index: 2; filter: drop-shadow(0 4px 14px rgba(0,0,0,.45)); }
+  .team, h1, .sub { padding-right: 96px; }
+  .watermark { position: fixed; right: -60px; bottom: -40px; height: 70vh; opacity: .05; pointer-events: none; z-index: 0; }
   .team { color: var(--accent); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
   h1 { font-size: 34px; margin: 6px 0 2px; }
   .sub { color: var(--muted); font-size: 15px; }
@@ -26,7 +32,7 @@
   .bar { height: 10px; background: var(--bg2); border-radius: 99px; overflow: hidden; border: 1px solid var(--line); }
   .bar > div { height: 100%; background: linear-gradient(90deg, var(--accent), var(--gold)); border-radius: 99px; transition: width .8s ease; }
   h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 30px 0 12px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; }
   .badge {
     background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 8px 12px;
     text-align: center; cursor: pointer; transition: transform .15s; font: inherit; color: inherit;
@@ -38,6 +44,8 @@
   }
   .badge .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
   .badge .name { font-size: 12.5px; line-height: 1.25; font-weight: 600; }
+  .icon.img { background: none !important; border: none !important; width: 76px !important; height: 76px !important; }
+  .sheet .icon.img { width: 150px !important; height: 150px !important; }
   .badge.locked { opacity: .38; }
   .badge.locked .icon { border-color: var(--line); filter: grayscale(1); }
   .sheet-bg { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: none; align-items: flex-end; justify-content: center; }
@@ -59,30 +67,52 @@
 </style>
 </head>
 <body>
-<main id="app"><div class="empty">Loading…</div></main>
+<img class="watermark" src="logo.png" alt="">
+<div class="wrap">
+  <img class="logo" src="logo.png" alt="Kraken logo">
+  <main id="app"><div class="empty">Loading…</div></main>
+</div>
 <div class="sheet-bg" id="sheetBg"><div class="sheet" id="sheet"></div></div>
 
 <script>
 (async function () {
   const app = document.getElementById('app');
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const iconHTML = i => /\.(png|jpe?g|svg|webp|gif)$/i.test(i) ? `<img src="${esc(i)}" alt="">` : esc(i);
+  const isImg = i => /\.(png|jpe?g|svg|webp|gif)$/i.test(i);
+  const iconHTML = i => /\.(png|jpe?g|svg|webp|gif)$/i.test(i) ? `<img src="${esc(base + i)}" alt="" loading="lazy">` : esc(i);
   const fmt = d => new Date(d + 'T12:00:00').toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
 
   // Student slug from the path (kraken.org/alex) or ?s=alex as a fallback
   const params = new URLSearchParams(location.search);
-  const base = document.querySelector('base')?.getAttribute('href') || '/';
-  let slug = params.get('s') || location.pathname.replace(base, '/').split('/').filter(Boolean).pop() || '';
-  slug = slug.replace(/\.html$/, '').toLowerCase();
+  // Site root: an explicit <base>, else the repo folder on *.github.io, else "/"
+  // Find the site root by trying the likely spots for data.json
+  const explicit = document.querySelector('base')?.getAttribute('href');
+  const first = location.pathname.split('/').filter(Boolean)[0];
+  const candidates = [...new Set([explicit, first && !/\.html?$/.test(first) ? '/' + first + '/' : null, '/'].filter(Boolean))];
+  let base = candidates[0];
+
+  const fail = msg => { app.innerHTML = `<div class="empty">Couldn't load badge data.<br><br><small>${esc(msg)}</small></div>`; };
+  if (location.protocol === 'file:') return fail('This page has to be opened from a web server, not straight from a file on your computer.');
+  let data, res, url;
+  for (const c of candidates) {
+    url = c + 'data.json';
+    try { res = await fetch(url, { cache: 'no-store' }); } catch (e) { res = null; }
+    if (res && res.ok) { base = c; break; }
+  }
+  if (!res) return fail('Network error fetching data.json');
+  if (!res.ok) return fail(`Couldn't find data.json (tried ${candidates.map(c => c + 'data.json').join(', ')}). Check that it's uploaded next to index.html.`);
+  const text = await res.text();
+  try { data = JSON.parse(text); }
+  catch (e) {
+    const m = /position (\d+)/.exec(e.message);
+    const line = m ? text.slice(0, +m[1]).split('\n').length : null;
+    return fail('data.json has a typo' + (line ? ' near line ' + line : '') + ' (usually a missing or extra comma). ' + e.message);
+  }
+  let slug = params.get('s') || location.pathname.slice(base.length - 1).split('/').filter(Boolean).pop() || '';
+  if (!location.pathname.startsWith(base)) slug = params.get('s') || '';
+  slug = slug.replace(/\.html?$/, '').toLowerCase();
   if (slug === 'index' || slug === '404') slug = '';
 
-  let data;
-  try {
-    data = await (await fetch(base + 'data.json', { cache: 'no-store' })).json();
-  } catch (e) {
-    app.innerHTML = '<div class="empty">Couldn\'t load badge data.</div>';
-    return;
-  }
   const badges = Object.fromEntries(data.badges.map(b => [b.id, b]));
 
   // No slug: show the roster
@@ -118,7 +148,7 @@
     ${cats.map(c => `<h2>${esc(c)}</h2><div class="grid">${
       data.badges.filter(b => b.category === c).map(b => `
         <button class="badge ${earned[b.id] ? '' : 'locked'}" data-id="${esc(b.id)}">
-          <div class="icon">${iconHTML(b.icon)}</div><div class="name">${esc(b.name)}</div>
+          <div class="icon${isImg(b.icon) ? ' img' : ''}">${iconHTML(b.icon)}</div><div class="name">${esc(b.name)}</div>
         </button>`).join('')}</div>`).join('')}`;
 
   requestAnimationFrame(() => setTimeout(() => app.querySelector('.bar > div').style.width = pct + '%', 50));
@@ -128,7 +158,7 @@
     const btn = e.target.closest('.badge'); if (!btn) return;
     const b = badges[btn.dataset.id], d = earned[b.id];
     sheet.className = 'sheet' + (d ? '' : ' locked');
-    sheet.innerHTML = `<div class="icon">${iconHTML(b.icon)}</div><h3>${esc(b.name)}</h3>
+    sheet.innerHTML = `<div class="icon${isImg(b.icon) ? ' img' : ''}">${iconHTML(b.icon)}</div><h3>${esc(b.name)}</h3>
       <div class="cat">${esc(b.category)}</div><p>${esc(b.description)}</p>
       <div class="${d ? 'when' : 'sub'}">${d ? 'Earned ' + fmt(d) : 'Not earned yet'}</div>`;
     bg.classList.add('open');

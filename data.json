@@ -1,40 +1,276 @@
 {
   "team": "FRC 1410 The Kraken",
   "badges": [
-    { "id": "safety",    "name": "Shop Safety",        "icon": "🦺", "category": "Shop",        "description": "Passed the shop safety walkthrough and quiz." },
-    { "id": "handtools", "name": "Hand Tools",         "icon": "🔧", "category": "Shop",        "description": "Can identify and correctly use the core hand tools." },
-    { "id": "drillpress","name": "Drill Press",        "icon": "🛠️", "category": "Shop",        "description": "Checked off on safe drill press setup and use." },
-    { "id": "cad1",      "name": "CAD Level 1",        "icon": "📐", "category": "Design",      "description": "Modeled and constrained a part from a drawing in Onshape." },
-    { "id": "cad2",      "name": "CAD Level 2",        "icon": "🧩", "category": "Design",      "description": "Built a working assembly with mates and a BOM." },
-    { "id": "crimp",     "name": "Crimping",           "icon": "🔌", "category": "Electrical",  "description": "Made three good crimps that passed a pull test." },
-    { "id": "wiring",    "name": "Robot Wiring",       "icon": "⚡", "category": "Electrical",  "description": "Wired a motor controller to the PDH following team standards." },
-    { "id": "java1",     "name": "Java Basics",        "icon": "☕", "category": "Programming", "description": "Wrote and deployed a command that drives a motor." },
-    { "id": "auto",      "name": "Autonomous",         "icon": "🤖", "category": "Programming", "description": "Wrote an autonomous routine that ran in a match." },
-    { "id": "scout",     "name": "Scouting",           "icon": "📋", "category": "Strategy",    "description": "Scouted a full competition day with complete data." },
-    { "id": "pit",       "name": "Pit Crew",           "icon": "🏁", "category": "Strategy",    "description": "Worked the pit at an event and handled a between-match repair." },
-    { "id": "outreach",  "name": "Outreach",           "icon": "📣", "category": "Team",        "description": "Represented the team at a demo or community event." }
+    {
+      "id": "cnc",
+      "name": "CNC Capable",
+      "icon": "icons/cnc.png",
+      "category": "Fabrication",
+      "description": "Can set up and run a job on the CNC router with a mentor nearby."
+    },
+    {
+      "id": "cnc-master",
+      "name": "CNC Master",
+      "icon": "icons/cnc-master.png",
+      "category": "Fabrication",
+      "description": "Runs the CNC independently, from CAM to finished part, and can train others."
+    },
+    {
+      "id": "mill",
+      "name": "Mill Capable",
+      "icon": "icons/mill.png",
+      "category": "Fabrication",
+      "description": "Can safely set up and make basic cuts on the mill."
+    },
+    {
+      "id": "mill-master",
+      "name": "Mill Master",
+      "icon": "icons/mill-master.png",
+      "category": "Fabrication",
+      "description": "Mills precision parts independently and can train others."
+    },
+    {
+      "id": "lathe",
+      "name": "Lathe Capable",
+      "icon": "icons/lathe.png",
+      "category": "Fabrication",
+      "description": "Can safely set up and turn basic parts on the lathe."
+    },
+    {
+      "id": "lathe-master",
+      "name": "Lathe Master",
+      "icon": "icons/lathe-master.png",
+      "category": "Fabrication",
+      "description": "Turns precision parts independently and can train others."
+    },
+    {
+      "id": "print3d",
+      "name": "3D Print Capable",
+      "icon": "icons/print3d.png",
+      "category": "Fabrication",
+      "description": "Can slice and run a print, and clear common failures."
+    },
+    {
+      "id": "print3d-master",
+      "name": "3D Print Master",
+      "icon": "icons/print3d-master.png",
+      "category": "Fabrication",
+      "description": "Maintains the printers and designs parts for printing."
+    },
+    {
+      "id": "wiring",
+      "name": "Wiring Capable",
+      "icon": "icons/wiring.png",
+      "category": "Electrical",
+      "description": "Wires components to team standards with clean, labeled runs."
+    },
+    {
+      "id": "wiring-master",
+      "name": "Wiring Master",
+      "icon": "icons/wiring-master.png",
+      "category": "Electrical",
+      "description": "Lays out and wires a full robot electrical system."
+    },
+    {
+      "id": "pneumatics",
+      "name": "Pneumatics Capable",
+      "icon": "icons/pneumatics.png",
+      "category": "Electrical",
+      "description": "Can plumb and leak-check a pneumatic circuit."
+    },
+    {
+      "id": "pneumatics-master",
+      "name": "Pneumatics Master",
+      "icon": "icons/pneumatics-master.png",
+      "category": "Electrical",
+      "description": "Designs pneumatic systems and sizes cylinders and tanks."
+    },
+    {
+      "id": "solder",
+      "name": "Soldering Capable",
+      "icon": "icons/solder.png",
+      "category": "Electrical",
+      "description": "Makes clean, reliable solder joints and splices."
+    },
+    {
+      "id": "solder-master",
+      "name": "Soldering Master",
+      "icon": "icons/solder-master.png",
+      "category": "Electrical",
+      "description": "Does board-level soldering and repair, and can train others."
+    },
+    {
+      "id": "cad",
+      "name": "CAD Capable",
+      "icon": "icons/cad.png",
+      "category": "Design & Programming",
+      "description": "Models and constrains parts from a drawing."
+    },
+    {
+      "id": "cad-master",
+      "name": "CAD Master",
+      "icon": "icons/cad-master.png",
+      "category": "Design & Programming",
+      "description": "Designs full mechanisms and assemblies for the robot."
+    },
+    {
+      "id": "code",
+      "name": "Java/C++ Capable",
+      "icon": "icons/code.png",
+      "category": "Design & Programming",
+      "description": "Writes and deploys working robot code."
+    },
+    {
+      "id": "code-master",
+      "name": "Java/C++ Master",
+      "icon": "icons/code-master.png",
+      "category": "Design & Programming",
+      "description": "Structures subsystems and reviews other students' code."
+    },
+    {
+      "id": "pid",
+      "name": "PID Tuning Capable",
+      "icon": "icons/pid.png",
+      "category": "Design & Programming",
+      "description": "Can tune a PID loop on a mechanism."
+    },
+    {
+      "id": "pid-master",
+      "name": "PID Tuning Master",
+      "icon": "icons/pid-master.png",
+      "category": "Design & Programming",
+      "description": "Tunes complex control loops and explains the tradeoffs."
+    },
+    {
+      "id": "auto",
+      "name": "Autonomous Programming",
+      "icon": "icons/auto.png",
+      "category": "Design & Programming",
+      "description": "Wrote an autonomous routine that ran in a match."
+    },
+    {
+      "id": "vision",
+      "name": "Vision / Sensors",
+      "icon": "icons/vision.png",
+      "category": "Design & Programming",
+      "description": "Integrated a camera or sensor into robot code."
+    },
+    {
+      "id": "grant",
+      "name": "Grant Writing Capable",
+      "icon": "icons/grant.png",
+      "category": "Business & Outreach",
+      "description": "Drafted a section of a grant application."
+    },
+    {
+      "id": "grant-master",
+      "name": "Grant Writing Master",
+      "icon": "icons/grant-master.png",
+      "category": "Business & Outreach",
+      "description": "Led a full grant application from start to finish."
+    },
+    {
+      "id": "grant-submitted",
+      "name": "Grant Submitted",
+      "icon": "icons/grant-submitted.png",
+      "category": "Business & Outreach",
+      "description": "A grant you worked on was submitted."
+    },
+    {
+      "id": "raised1k",
+      "name": "$1000+ Raised",
+      "icon": "icons/raised1k.png",
+      "category": "Business & Outreach",
+      "description": "Helped raise $1000 or more for the team."
+    },
+    {
+      "id": "raised5k",
+      "name": "$5000+ Raised",
+      "icon": "icons/raised5k.png",
+      "category": "Business & Outreach",
+      "description": "Helped raise $5000 or more for the team."
+    },
+    {
+      "id": "outreach",
+      "name": "Ran Outreach Event",
+      "icon": "icons/outreach.png",
+      "category": "Business & Outreach",
+      "description": "Organized and ran an outreach event."
+    },
+    {
+      "id": "volunteer",
+      "name": "Volunteer Hours",
+      "icon": "icons/volunteer.png",
+      "category": "Business & Outreach",
+      "description": "Logged volunteer hours at FIRST or community events."
+    },
+    {
+      "id": "notebook",
+      "name": "Engineering Notebook",
+      "icon": "icons/notebook.png",
+      "category": "Team",
+      "description": "Made a strong contribution to the engineering notebook."
+    },
+    {
+      "id": "attendance",
+      "name": "Perfect Attendance",
+      "icon": "icons/attendance.png",
+      "category": "Team",
+      "description": "Didn't miss a meeting all season."
+    },
+    {
+      "id": "offseason",
+      "name": "Off-Season Event",
+      "icon": "icons/offseason.png",
+      "category": "Team",
+      "description": "Competed at an off-season event."
+    },
+    {
+      "id": "taught",
+      "name": "Taught a Skill",
+      "icon": "icons/taught.png",
+      "category": "Team",
+      "description": "Taught a skill to another student."
+    },
+    {
+      "id": "subteam-lead",
+      "name": "Subteam Lead",
+      "icon": "icons/subteam-lead.png",
+      "category": "Leadership",
+      "description": "Led a subteam for a season."
+    },
+    {
+      "id": "director",
+      "name": "Director",
+      "icon": "icons/director.png",
+      "category": "Leadership",
+      "description": "Served as a team director."
+    }
   ],
+  "students": [
+    {
       "slug": "savannah-c",
-      "name": "Savannah Cooper",
+      "name": "Savannah C.",
       "role": "Mechanical",
       "joined": "2026",
       "earned": [
-        { "badge": "handtools", "date": "2025-09-19" },
-        { "badge": "drillpress","date": "2025-10-03" },
-        { "badge": "cad1",      "date": "2025-11-14" },
-        { "badge": "pit",       "date": "2026-03-08" }
+        {
+          "badge": "cad",
+          "date": "2025-11-14"
+        }
       ]
     },
     {
       "slug": "sebastian-m",
-      "name": "Sebastian Aranda Manago",
+      "name": "Sebastian M.",
       "role": "Programming",
       "joined": "2026",
       "earned": [
-        { "badge": "safety", "date": "2026-09-10" },
-        { "badge": "wiring",  "date": "2026-10-01" }
+        {
+          "badge": "wiring",
+          "date": "2026-10-01"
+        }
       ]
-
     }
   ]
 }
