@@ -16,12 +16,11 @@
   ],
   "students": [
     {
-      "slug": "alex",
-      "name": "Alex R.",
+      "slug": "savannah-c",
+      "name": "Savannah Cooper",
       "role": "Mechanical",
-      "joined": "2025",
+      "joined": "2026",
       "earned": [
-        { "badge": "safety",    "date": "2025-09-12" },
         { "badge": "handtools", "date": "2025-09-19" },
         { "badge": "drillpress","date": "2025-10-03" },
         { "badge": "cad1",      "date": "2025-11-14" },
