@@ -247,31 +247,33 @@
       "description": "Served as a team director."
     }
   ],
-  "students": [
+    "students": [
     {
       "slug": "savannah-c",
       "name": "Savannah C.",
       "role": "Mechanical",
       "joined": "2026",
       "earned": [
-        {"badge": "cad", "date": "2025-11-14"}
+        { "badge": "cad", "date": "2025-11-14" }
+      ]
     },
     {
       "slug": "olson-b",
-      "name": "Olson Batchelor",
+      "name": "Olson B.",
       "role": "Mechanical",
       "joined": "2026",
       "earned": [
-        {"badge": "cnc-master", "date": "2026-10-01"},
-        {"badge": "cad-master","date": "2026-10-01"}
-      },
-      {
+        { "badge": "cnc-master", "date": "2026-10-01" },
+        { "badge": "cad-master", "date": "2026-10-01" }
+      ]
+    },
+    {
       "slug": "sebastian-m",
       "name": "Sebastian M.",
       "role": "Programming",
       "joined": "2026",
       "earned": [
-        {"badge": "wiring", "date": "2026-10-01"},
+        { "badge": "wiring", "date": "2026-10-01" }
       ]
     }
   ]
