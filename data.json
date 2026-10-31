@@ -262,12 +262,13 @@
       "name": "Olson B.",
       "role": "Mechanical",
       "joined": "2026",
-      "earned": [
+            "earned": [
         { "badge": "cnc-master", "date": "2026-10-01" },
         { "badge": "cad-master", "date": "2026-10-01" },
         { "badge": "subteam-lead", "date": "2026-10-01" },
         { "badge": "volunteer", "date": "2026-10-01" },
-        { "badge": "tought", "date": "2026-10-01" }
+        { "badge": "taught", "date": "2026-10-01" }
+      ]
     },
     {
       "slug": "sebastian-m",
