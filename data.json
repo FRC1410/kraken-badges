@@ -2,6 +2,20 @@
   "team": "FRC 1410 The Kraken",
   "badges": [
     {
+      "id": "subteam-lead",
+      "name": "Subteam Lead",
+      "icon": "icons/subteam-lead.png",
+      "category": "Leadership",
+      "description": "Led a subteam for a season."
+    },
+    {
+      "id": "director",
+      "name": "Director",
+      "icon": "icons/director.png",
+      "category": "Leadership",
+      "description": "Served as a team director."
+    },
+    {
       "id": "cnc",
       "name": "CNC Capable",
       "icon": "icons/cnc.png",
@@ -231,20 +245,6 @@
       "icon": "icons/taught.png",
       "category": "Team",
       "description": "Taught a skill to another student."
-    },
-    {
-      "id": "subteam-lead",
-      "name": "Subteam Lead",
-      "icon": "icons/subteam-lead.png",
-      "category": "Leadership",
-      "description": "Led a subteam for a season."
-    },
-    {
-      "id": "director",
-      "name": "Director",
-      "icon": "icons/director.png",
-      "category": "Leadership",
-      "description": "Served as a team director."
     }
   ],
     "students": [
