@@ -1,0 +1,42 @@
+{
+  "team": "FRC 1410 The Kraken",
+  "badges": [
+    { "id": "safety",    "name": "Shop Safety",        "icon": "🦺", "category": "Shop",        "description": "Passed the shop safety walkthrough and quiz." },
+    { "id": "handtools", "name": "Hand Tools",         "icon": "🔧", "category": "Shop",        "description": "Can identify and correctly use the core hand tools." },
+    { "id": "drillpress","name": "Drill Press",        "icon": "🛠️", "category": "Shop",        "description": "Checked off on safe drill press setup and use." },
+    { "id": "cad1",      "name": "CAD Level 1",        "icon": "📐", "category": "Design",      "description": "Modeled and constrained a part from a drawing in Onshape." },
+    { "id": "cad2",      "name": "CAD Level 2",        "icon": "🧩", "category": "Design",      "description": "Built a working assembly with mates and a BOM." },
+    { "id": "crimp",     "name": "Crimping",           "icon": "🔌", "category": "Electrical",  "description": "Made three good crimps that passed a pull test." },
+    { "id": "wiring",    "name": "Robot Wiring",       "icon": "⚡", "category": "Electrical",  "description": "Wired a motor controller to the PDH following team standards." },
+    { "id": "java1",     "name": "Java Basics",        "icon": "☕", "category": "Programming", "description": "Wrote and deployed a command that drives a motor." },
+    { "id": "auto",      "name": "Autonomous",         "icon": "🤖", "category": "Programming", "description": "Wrote an autonomous routine that ran in a match." },
+    { "id": "scout",     "name": "Scouting",           "icon": "📋", "category": "Strategy",    "description": "Scouted a full competition day with complete data." },
+    { "id": "pit",       "name": "Pit Crew",           "icon": "🏁", "category": "Strategy",    "description": "Worked the pit at an event and handled a between-match repair." },
+    { "id": "outreach",  "name": "Outreach",           "icon": "📣", "category": "Team",        "description": "Represented the team at a demo or community event." }
+  ],
+  "students": [
+    {
+      "slug": "alex",
+      "name": "Alex R.",
+      "role": "Mechanical",
+      "joined": "2025",
+      "earned": [
+        { "badge": "safety",    "date": "2025-09-12" },
+        { "badge": "handtools", "date": "2025-09-19" },
+        { "badge": "drillpress","date": "2025-10-03" },
+        { "badge": "cad1",      "date": "2025-11-14" },
+        { "badge": "pit",       "date": "2026-03-08" }
+      ]
+    },
+    {
+      "slug": "sam",
+      "name": "Sam K.",
+      "role": "Programming",
+      "joined": "2026",
+      "earned": [
+        { "badge": "safety", "date": "2026-09-10" },
+        { "badge": "java1",  "date": "2026-10-01" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kraken Proficiencies</title>
+<meta name="theme-color" content="#0b1d2e">
+<style>
+  :root {
+    --bg: #0b1d2e; --bg2: #10283f; --card: #143352; --line: #1f4568;
+    --text: #e8f1f8; --muted: #8aa6bf; --accent: #2ec4b6; --gold: #f2c14e;
+  }
+  * { box-sizing: border-box; }
+  html { background: #0b1d2e; }
+  body {
+    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(circle at 50% -10%, #1a4a6e 0%, var(--bg) 60%) fixed;
+    color: var(--text); min-height: 100vh;
+  }
+  main { max-width: 640px; margin: 0 auto; padding: 28px 18px 60px; }
+  .team { color: var(--accent); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
+  h1 { font-size: 34px; margin: 6px 0 2px; }
+  .sub { color: var(--muted); font-size: 15px; }
+  .progress { margin: 22px 0 8px; display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); }
+  .progress b { color: var(--text); }
+  .bar { height: 10px; background: var(--bg2); border-radius: 99px; overflow: hidden; border: 1px solid var(--line); }
+  .bar > div { height: 100%; background: linear-gradient(90deg, var(--accent), var(--gold)); border-radius: 99px; transition: width .8s ease; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 30px 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 12px; }
+  .badge {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 8px 12px;
+    text-align: center; cursor: pointer; transition: transform .15s; font: inherit; color: inherit;
+  }
+  .badge:active { transform: scale(.96); }
+  .badge .icon {
+    width: 58px; height: 58px; margin: 0 auto 8px; border-radius: 50%; display: grid; place-items: center;
+    font-size: 30px; background: var(--bg2); border: 2px solid var(--accent);
+  }
+  .badge .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .badge .name { font-size: 12.5px; line-height: 1.25; font-weight: 600; }
+  .badge.locked { opacity: .38; }
+  .badge.locked .icon { border-color: var(--line); filter: grayscale(1); }
+  .sheet-bg { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: none; align-items: flex-end; justify-content: center; }
+  .sheet-bg.open { display: flex; }
+  .sheet {
+    background: var(--bg2); width: 100%; max-width: 640px; border-radius: 22px 22px 0 0; padding: 26px 24px 40px;
+    border-top: 1px solid var(--line); text-align: center;
+  }
+  .sheet .icon { width: 88px; height: 88px; font-size: 46px; margin: 0 auto 12px; border-radius: 50%; display: grid; place-items: center; background: var(--card); border: 3px solid var(--accent); }
+  .sheet .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .sheet h3 { margin: 0 0 4px; font-size: 22px; }
+  .sheet .cat { color: var(--accent); font-size: 13px; font-weight: 600; }
+  .sheet p { color: var(--muted); line-height: 1.5; }
+  .sheet .when { color: var(--gold); font-weight: 600; }
+  .sheet.locked .icon { filter: grayscale(1); border-color: var(--line); }
+  .empty { text-align: center; padding: 80px 10px; color: var(--muted); }
+  .roster a { display: block; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 8px; color: var(--text); text-decoration: none; }
+  .roster a span { float: right; color: var(--muted); }
+</style>
+</head>
+<body>
+<main id="app"><div class="empty">Loading…</div></main>
+<div class="sheet-bg" id="sheetBg"><div class="sheet" id="sheet"></div></div>
+
+<script>
+(async function () {
+  const app = document.getElementById('app');
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const iconHTML = i => /\.(png|jpe?g|svg|webp|gif)$/i.test(i) ? `<img src="${esc(i)}" alt="">` : esc(i);
+  const fmt = d => new Date(d + 'T12:00:00').toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+
+  // Student slug from the path (kraken.org/alex) or ?s=alex as a fallback
+  const params = new URLSearchParams(location.search);
+  const base = document.querySelector('base')?.getAttribute('href') || '/';
+  let slug = params.get('s') || location.pathname.replace(base, '/').split('/').filter(Boolean).pop() || '';
+  slug = slug.replace(/\.html$/, '').toLowerCase();
+  if (slug === 'index' || slug === '404') slug = '';
+
+  let data;
+  try {
+    data = await (await fetch(base + 'data.json', { cache: 'no-store' })).json();
+  } catch (e) {
+    app.innerHTML = '<div class="empty">Couldn\'t load badge data.</div>';
+    return;
+  }
+  const badges = Object.fromEntries(data.badges.map(b => [b.id, b]));
+
+  // No slug: show the roster
+  if (!slug) {
+    document.title = data.team + ' Proficiencies';
+    app.innerHTML = `<div class="team">${esc(data.team)}</div><h1>Proficiencies</h1>
+      <div class="sub">${data.students.length} students · ${data.badges.length} badges</div>
+      <h2>Roster</h2><div class="roster">${data.students.map(s =>
+        `<a href="${base}${esc(s.slug)}">${esc(s.name)}<span>${s.earned.length} / ${data.badges.length}</span></a>`).join('')}</div>`;
+    return;
+  }
+
+  const student = data.students.find(s => s.slug.toLowerCase() === slug);
+  if (!student) {
+    app.innerHTML = `<div class="empty">No student called “${esc(slug)}”.<br><br><a href="${base}" style="color:var(--accent)">See the roster</a></div>`;
+    return;
+  }
+
+  document.title = student.name + ' · ' + data.team;
+  const earned = Object.fromEntries(student.earned.map(e => [e.badge, e.date]));
+  const count = Object.keys(earned).filter(id => badges[id]).length;
+  const pct = Math.round(count / data.badges.length * 100);
+
+  const cats = [];
+  data.badges.forEach(b => { if (!cats.includes(b.category)) cats.push(b.category); });
+
+  app.innerHTML = `
+    <div class="team">${esc(data.team)}</div>
+    <h1>${esc(student.name)}</h1>
+    <div class="sub">${[student.role, student.joined && 'Since ' + student.joined].filter(Boolean).map(esc).join(' · ')}</div>
+    <div class="progress"><span><b>${count}</b> of ${data.badges.length} collected</span><span>${pct}%</span></div>
+    <div class="bar"><div style="width:0"></div></div>
+    ${cats.map(c => `<h2>${esc(c)}</h2><div class="grid">${
+      data.badges.filter(b => b.category === c).map(b => `
+        <button class="badge ${earned[b.id] ? '' : 'locked'}" data-id="${esc(b.id)}">
+          <div class="icon">${iconHTML(b.icon)}</div><div class="name">${esc(b.name)}</div>
+        </button>`).join('')}</div>`).join('')}`;
+
+  requestAnimationFrame(() => setTimeout(() => app.querySelector('.bar > div').style.width = pct + '%', 50));
+
+  const bg = document.getElementById('sheetBg'), sheet = document.getElementById('sheet');
+  app.addEventListener('click', e => {
+    const btn = e.target.closest('.badge'); if (!btn) return;
+    const b = badges[btn.dataset.id], d = earned[b.id];
+    sheet.className = 'sheet' + (d ? '' : ' locked');
+    sheet.innerHTML = `<div class="icon">${iconHTML(b.icon)}</div><h3>${esc(b.name)}</h3>
+      <div class="cat">${esc(b.category)}</div><p>${esc(b.description)}</p>
+      <div class="${d ? 'when' : 'sub'}">${d ? 'Earned ' + fmt(d) : 'Not earned yet'}</div>`;
+    bg.classList.add('open');
+  });
+  bg.addEventListener('click', e => { if (e.target === bg) bg.classList.remove('open'); });
+})();
+</script>
+</body>
+</html>
