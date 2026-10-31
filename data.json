@@ -14,14 +14,11 @@
     { "id": "pit",       "name": "Pit Crew",           "icon": "🏁", "category": "Strategy",    "description": "Worked the pit at an event and handled a between-match repair." },
     { "id": "outreach",  "name": "Outreach",           "icon": "📣", "category": "Team",        "description": "Represented the team at a demo or community event." }
   ],
-  "students": [
-    {
-      "slug": "alex",
-      "name": "Alex R.",
+      "slug": "savannah-c",
+      "name": "Savannah Cooper",
       "role": "Mechanical",
-      "joined": "2025",
+      "joined": "2026",
       "earned": [
-        { "badge": "safety",    "date": "2025-09-12" },
         { "badge": "handtools", "date": "2025-09-19" },
         { "badge": "drillpress","date": "2025-10-03" },
         { "badge": "cad1",      "date": "2025-11-14" },
@@ -29,14 +26,15 @@
       ]
     },
     {
-      "slug": "sam",
-      "name": "Sam K.",
+      "slug": "sebastian-m",
+      "name": "Sebastian Aranda Manago",
       "role": "Programming",
       "joined": "2026",
       "earned": [
         { "badge": "safety", "date": "2026-09-10" },
-        { "badge": "java1",  "date": "2026-10-01" }
+        { "badge": "wiring",  "date": "2026-10-01" }
       ]
+
     }
   ]
 }
