@@ -28,13 +28,13 @@
       ]
     },
     {
-      "slug": "sam",
-      "name": "Sam K.",
+      "slug": "sebastian-m",
+      "name": "Sebastian Aranda Manago",
       "role": "Programming",
       "joined": "2026",
       "earned": [
         { "badge": "safety", "date": "2026-09-10" },
-        { "badge": "java1",  "date": "2026-10-01" }
+        { "badge": "wiring",  "date": "2026-10-01" }
       ]
     }
   ]
