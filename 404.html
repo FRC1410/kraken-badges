@@ -71,30 +71,18 @@
 
   // Student slug from the path (kraken.org/alex) or ?s=alex as a fallback
   const params = new URLSearchParams(location.search);
-  let base = document.querySelector('base')?.getAttribute('href');
-  if (!base) {
-    const first = location.pathname.split('/').filter(Boolean)[0];
-    base = (location.hostname.endsWith('github.io') && first) ? '/' + first + '/' : '/';
-  }
+  const base = document.querySelector('base')?.getAttribute('href') || '/';
   let slug = params.get('s') || location.pathname.replace(base, '/').split('/').filter(Boolean).pop() || '';
   slug = slug.replace(/\.html$/, '').toLowerCase();
   if (slug === 'index' || slug === '404') slug = '';
-  
-  const fail = msg => { app.innerHTML = `<div class="empty">Couldn't load badge data.<br><br><small>${esc(msg)}</small></div>`; };
-  if (location.protocol === 'file:') return fail('This page has to be opened from a web server, not straight from a file on your computer.');
-  let data, res;
-  const url = base + 'data.json';
-  try { res = await fetch(url, { cache: 'no-store' }); }
-  catch (e) { return fail('Network error fetching ' + url); }
-  if (!res.ok) return fail(`${url} returned ${res.status}. Check that data.json is uploaded next to index.html.`);
-  const text = await res.text();
-  try { data = JSON.parse(text); }
-  catch (e) {
-    const m = /position (\d+)/.exec(e.message);
-    const line = m ? text.slice(0, +m[1]).split('\n').length : null;
-    return fail('data.json has a typo' + (line ? ' near line ' + line : '') + ' (usually a missing or extra comma). ' + e.message);
+
+  let data;
+  try {
+    data = await (await fetch(base + 'data.json', { cache: 'no-store' })).json();
+  } catch (e) {
+    app.innerHTML = '<div class="empty">Couldn\'t load badge data.</div>';
+    return;
   }
-  
   const badges = Object.fromEntries(data.badges.map(b => [b.id, b]));
 
   // No slug: show the roster
