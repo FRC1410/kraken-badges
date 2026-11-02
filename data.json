@@ -272,6 +272,53 @@
       ]
     },
     {
+      "slug": "jay-h",
+      "name": "Jay",
+      "role": "Business",
+      "joined": "2026",
+      "earned": [
+        { "badge": "offseason", "date": "2026-10-01" },
+        { "badge": "volunteer", "date": "2026-10-01" },
+        { "badge": "taught", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "weston-t",
+      "name": "Weston",
+      "role": "Mechanical",
+      "joined": "2026",
+      "earned": [
+
+      ]
+    },
+    {
+      "slug": "jude-k",
+      "name": "Jude",
+      "role": "Mechanical",
+      "joined": "2026",
+      "earned": [
+        
+      ]
+    },
+    {
+      "slug": "james-n",
+      "name": "James",
+      "role": "Mechanical",
+      "joined": "2026",
+      "earned": [
+       
+      ]
+    },
+    {
+      "slug": "vee-jd",
+      "name": "Vee",
+      "role": "Business",
+      "joined": "2026",
+      "earned": [
+
+      ]
+    },
+    {
       "slug": "axel-g",
       "name": "Axel",
       "role": "Electrical",
