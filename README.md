@@ -17,7 +17,7 @@ Open `data.json`, find the student, and add a line to `earned`:
 
 ## Adding a student
 
-Add an entry to `students`. The `slug` is what goes in the URL and on their NFC sticker, so keep it short, lowercase, no spaces (`alexr`, not `Alex R`).
+Add an entry to `students`. The `slug` is what goes in the URL and on their NFC sticker, so keep it short, lowercase, no spaces (`alex-r`, not `Alex R`).
 
 ## Adding a badge
 
@@ -27,12 +27,12 @@ Add an entry to `badges`. `icon` can be an emoji or an image file path like `ico
 
 Works on any static host.
 
-- **GitHub Pages:** push these files to a repo and turn on Pages. GitHub serves `404.html` for `/alex`, and that file is the same page, so it reads the name from the URL. If the site lives in a subfolder (`user.github.io/kraken-badges/`), add `<base href="/kraken-badges/">` inside `<head>` in both HTML files.
+- **GitHub Pages:** push these files to a repo and turn on Pages. GitHub serves `404.html` for `/alex-r`, and that file is the same page, so it reads the name from the URL. If the site lives in a subfolder (`user.github.io/kraken-badges/`), add `<base href="/kraken-badges/">` inside `<head>` in both HTML files.
 - **Netlify / Cloudflare Pages:** drag the folder in. `_redirects` handles routing.
-- **Anywhere else:** `index.html?s=alex` always works without any routing setup.
+- **Anywhere else:** `index.html?s=alex-r` always works without any routing setup.
 
 Note: opening `index.html` straight from your computer won't load the data. It has to be served over http.
 
 ## NFC stickers
 
-Write each student's URL (e.g. `https://kraken.org/alex`) to an NTAG213/215 sticker with the NFC Tools app, then lock it. Use anti-metal tags if the sticker sits on metal.
+Write each student's URL (e.g. `https://kraken.org/alex-r`) to an NTAG213/215 sticker with the NFC Tools app, then lock it. Use anti-metal tags if the sticker sits on metal.
