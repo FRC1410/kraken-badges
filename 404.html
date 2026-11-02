@@ -121,7 +121,7 @@
     document.title = data.team + ' Proficiencies';
     app.innerHTML = `<div class="team">${esc(data.team)}</div><h1>Proficiencies</h1>
       <div class="sub">${data.students.length} students · ${data.badges.length} badges</div>
-      <h2>Roster</h2><div class="roster">${data.students.map(s =>
+      <h2>Roster</h2><div class="roster">${[...data.students].sort((a, b) => a.name.localeCompare(b.name)).map(s =>
         `<a href="${base}${esc(s.slug)}">${esc(s.name)}<span>${s.earned.length} / ${data.badges.length}</span></a>`).join('')}</div>`;
     return;
   }
