@@ -254,7 +254,8 @@
       "role": "Mechanical",
       "joined": "2026",
       "earned": [
-        { "badge": "cad", "date": "2026-10-01" }
+        { "badge": "cad", "date": "2026-10-01" },
+        { "badge": "offseason", "date": "2026-10-01" }
       ]
     },
     {
