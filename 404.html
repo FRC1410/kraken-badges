@@ -69,7 +69,7 @@
 <body>
 <img class="watermark" src="logo.png" alt="">
 <div class="wrap">
-  <img class="logo" src="logo.png" alt="Kraken logo">
+  <a id="home" href="./" aria-label="All students"><img class="logo" src="logo.png" alt="Kraken logo"></a>
   <main id="app"><div class="empty">Loading…</div></main>
 </div>
 <div class="sheet-bg" id="sheetBg"><div class="sheet" id="sheet"></div></div>
@@ -99,6 +99,7 @@
     try { res = await fetch(url, { cache: 'no-store' }); } catch (e) { res = null; }
     if (res && res.ok) { base = c; break; }
   }
+  document.getElementById('home').href = base;
   if (!res) return fail('Network error fetching data.json');
   if (!res.ok) return fail(`Couldn't find data.json (tried ${candidates.map(c => c + 'data.json').join(', ')}). Check that it's uploaded next to index.html.`);
   const text = await res.text();
