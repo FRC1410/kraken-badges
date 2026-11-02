@@ -250,7 +250,7 @@
     "students": [
     {
       "slug": "savannah-c",
-      "name": "Savannah C.",
+      "name": "Savannah",
       "role": "Mechanical",
       "joined": "2026",
       "earned": [
@@ -259,8 +259,242 @@
     },
     {
       "slug": "olson-b",
-      "name": "Olson B.",
+      "name": "Olson",
       "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "cnc-master", "date": "2026-10-01" },
+        { "badge": "cad-master", "date": "2026-10-01" },
+        { "badge": "subteam-lead", "date": "2026-10-01" },
+        { "badge": "volunteer", "date": "2026-10-01" },
+        { "badge": "taught", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "axel-g",
+      "name": "Axel",
+      "role": "Electrical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "wiring-master", "date": "2026-10-01" },
+        { "badge": "solder-master", "date": "2026-10-01" },
+        { "badge": "subteam-lead", "date": "2026-10-01" },
+        { "badge": "director", "date": "2026-10-01" },
+        { "badge": "taught", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "calvin-t",
+      "name": "Calvin",
+      "role": "Programming",
+      "joined": "2026",
+            "earned": [
+        { "badge": "cnc-master", "date": "2026-10-01" },
+        { "badge": "offseason", "date": "2026-10-01" },
+        { "badge": "subteam-lead", "date": "2026-10-01" },
+        { "badge": "volunteer", "date": "2026-10-01" },
+        { "badge": "taught", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "xavier-f",
+      "name": "Xavier",
+      "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" },
+      ]
+    },
+    {
+      "slug": "carter-m",
+      "name": "Carter m.",
+      "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "subteam-lead", "date": "2026-10-01" },
+        { "badge": "offseason", "date": "2026-10-01" },
+        { "badge": "taught", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "bogdan-s",
+      "name": "Bogdan",
+      "role": "Programming",
+      "joined": "2026",
+            "earned": [
+        { "badge": "vision", "date": "2026-10-01" },
+        { "badge": "offseason", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "izzy-c",
+      "name": "Izzy",
+      "role": "Programming",
+      "joined": "2026",
+            "earned": [
+
+      ]
+    },
+    {
+      "slug": "matt-e",
+      "name": "Matt",
+      "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" },
+      ]
+    },
+    {
+      "slug": "matilda-bh",
+      "name": "Matilda",
+      "role": "Electrical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" },
+      ]
+    },
+    {
+      "slug": "mateo-m",
+      "name": "Mateo",
+      "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" },
+        { "badge": "taught", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "sylas-j",
+      "name": "Sylas",
+      "role": "Programming",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" },
+      ]
+    },
+    {
+      "slug": "skylar-cw",
+      "name": "Skylar",
+      "role": "Role",
+      "joined": "2026",
+            "earned": [
+      ]
+    },
+    {
+      "slug": "katie-p",
+      "name": "Katie",
+      "role": "Business",
+      "joined": "2026",
+            "earned": [
+        { "badge": "cnc-master", "date": "2026-10-01" },
+        { "badge": "cad-master", "date": "2026-10-01" },
+        { "badge": "subteam-lead", "date": "2026-10-01" },
+        { "badge": "volunteer", "date": "2026-10-01" },
+        { "badge": "taught", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "evelyn-m-a",
+      "name": "Evelyn",
+      "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+      ]
+    },
+    {
+      "slug": "rowan-p",
+      "name": "Rowan",
+      "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "stylo-tw",
+      "name": "Stylo",
+      "role": "Electrical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "ollie-b",
+      "name": "Ollie",
+      "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "volunteer", "date": "2026-10-01" },
+        { "badge": "taught", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "carter-k",
+      "name": "Carter",
+      "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "carson-c",
+      "name": "Carson",
+      "role": "Programming",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "wyatt-rs",
+      "name": "Wyatt",
+      "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "wade-e",
+      "name": "Wade",
+      "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+      ]
+    },
+    {
+      "slug": "cade-o",
+      "name": "Cade",
+      "role": "Business",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" },
+        { "badge": "director", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "sydney-m",
+      "name": "Sydney",
+      "role": "Business",
+      "joined": "2026",
+            "earned": [
+      ]
+    },
+    {
+      "slug": "maxwell-f",
+      "name": "Maxwell",
+      "role": "Mechanical",
+      "joined": "2026",
+            "earned": [
+        { "badge": "offseason", "date": "2026-10-01" }
+      ]
+    },
+    {
+      "slug": "student-slug",
+      "name": "Student-Name",
+      "role": "Role",
       "joined": "2026",
             "earned": [
         { "badge": "cnc-master", "date": "2026-10-01" },
@@ -276,7 +510,11 @@
       "role": "Programming",
       "joined": "2026",
       "earned": [
-        { "badge": "wiring", "date": "2026-10-01" }
+        { "badge": "wiring", "date": "2026-10-01" },
+        { "badge": "volunteer", "date": "2026-10-01" },
+        { "badge": "offseason", "date": "2026-10-01" },
+        { "badge": "taught", "date": "2026-10-01" },
+        { "badge": "subteam-lead", "date": "2026-10-01" }
       ]
     }
   ]
