@@ -322,10 +322,12 @@
       "slug": "axel-g",
       "name": "Axel",
       "role": "Electrical",
-      "joined": "2026",
+      "joined": "2023",
       "earned": [
         { "badge": "wiring-master", "date": "2026-10-01" },
+        { "badge": "wiring", "date": "2026-10-01" },
         { "badge": "solder-master", "date": "2026-10-01" },
+        { "badge": "solder", "date": "2026-10-01" },
         { "badge": "subteam-lead", "date": "2026-10-01" },
         { "badge": "director", "date": "2026-10-01" },
         { "badge": "taught", "date": "2026-10-01" }
@@ -338,6 +340,10 @@
       "joined": "2026",
       "earned": [
         { "badge": "offseason", "date": "2026-10-01" },
+        { "badge": "auto", "date": "2026-10-01" },
+        { "badge": "code", "date": "2026-10-01" },
+        { "badge": "code-master", "date": "2026-10-01" },
+        { "badge": "pid", "date": "2026-10-01" },
         { "badge": "subteam-lead", "date": "2026-10-01" },
         { "badge": "volunteer", "date": "2026-10-01" },
         { "badge": "taught", "date": "2026-10-01" }
