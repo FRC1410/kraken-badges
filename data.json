@@ -355,6 +355,7 @@
       "role": "Electrical",
       "joined": "2026",
             "earned": [
+              { "badge": "solder", "date": "2026-10-01" }
       ]
     },
     {
@@ -374,6 +375,10 @@
       "earned": [
         { "badge": "subteam-lead", "date": "2026-10-01" },
         { "badge": "offseason", "date": "2026-10-01" },
+        { "badge": "cad", "date": "2026-10-01" },
+        { "badge": "cnc", "date": "2026-10-01" },
+        { "badge": "lathe", "date": "2026-10-01" },
+        { "badge": "mill", "date": "2026-10-01" },
         { "badge": "taught", "date": "2026-10-01" }
       ]
     },
@@ -409,7 +414,8 @@
       "role": "Electrical",
       "joined": "2026",
       "earned": [
-        { "badge": "offseason", "date": "2026-10-01" }
+        { "badge": "offseason", "date": "2026-10-01" },
+        { "badge": "solder", "date": "2026-10-01" }
       ]
     },
     {
@@ -461,7 +467,10 @@
       "role": "Mechanical",
       "joined": "2026",
       "earned": [
-        { "badge": "offseason", "date": "2026-10-01" }
+        { "badge": "offseason", "date": "2026-10-01" },
+        { "badge": "lathe", "date": "2026-10-01" },
+        { "badge": "mill", "date": "2026-10-01" }
+
       ]
     },
     {
