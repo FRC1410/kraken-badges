@@ -328,6 +328,9 @@
         { "badge": "wiring", "date": "2026-10-01" },
         { "badge": "solder-master", "date": "2026-10-01" },
         { "badge": "solder", "date": "2026-10-01" },
+        { "badge": "mill", "date": "2026-10-01" },
+        { "badge": "volunteer", "date": "2026-10-01" },
+        { "badge": "offseason", "date": "2026-10-01" },
         { "badge": "subteam-lead", "date": "2026-10-01" },
         { "badge": "director", "date": "2026-10-01" },
         { "badge": "taught", "date": "2026-10-01" }
